@@ -1,0 +1,53 @@
+*{
+  width: 100%;
+  height: 100%;
+}
+
+.App-header{
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.APP-login-acc{
+  width: 10%;
+  height: 30%;
+  margin-right: 20px;
+  gap: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.APP-logo {
+  width: 10%;
+  margin-left: 40px;
+}
+
+.APP-acc{
+  width: 80%;
+  height: 15px;
+}
+
+.APP-login{
+  width: 80%;
+  height: 15px;
+}
+
+.APP-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.APP-logo-body{
+  width: 30%;
+  height: 10%;
+}
+
+.input{
+  width: 40%;
+}
