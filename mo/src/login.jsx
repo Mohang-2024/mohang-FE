@@ -4,6 +4,7 @@ import Logo from "./svg/logo.svg";
 import Look from "../src/svg/look.svg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import AutoLogo from "../src/svg/auto.svg";
 
 function MainApp(){
   return(
@@ -18,16 +19,21 @@ function MainApp(){
       <Body>
         <Section>
         <ImgBody src={Logo} alt="logo"/>
+          <LoginDiv>
             <LoginInput
             type="text"
             name="userId"
             placeholder="아이디"
             ></LoginInput>
+          </LoginDiv>
             <LoginInput
-            type="text"
+            type="password"
             name="userId"
-            placeholder="아이디"
+            placeholder="비밀번호"
             ></LoginInput>
+          <LoginAuto>
+            <AutoButton><AutoImg src={AutoLogo}/><AutoFont>자동로그인</AutoFont></AutoButton>
+          </LoginAuto>
         </Section>
       </Body>
     </Main>
@@ -74,6 +80,10 @@ const JoinButton = styled.button`
   font-weight: 700;
 `;
 
+const LoginDiv = styled.div`
+  margin-bottom: 20px;
+`;
+
 const LoginButton = styled.button`  
   width: 70px;
   border: none;
@@ -113,4 +123,25 @@ const LoginInput = styled.input`
   height: 40px;
   outline: none;
   border: 2px solid black;
+`;
+
+const LoginAuto = styled.div`
+  width: 65%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+const AutoButton = styled.button`
+  background-color: #fff;
+  border: #fff;
+  display: flex;
+  `;
+
+const AutoImg = styled.img`
+  margin-right: 10px;
+`;
+
+const AutoFont = styled.div`
 `;
