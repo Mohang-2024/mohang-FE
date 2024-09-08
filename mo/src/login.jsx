@@ -7,6 +7,39 @@ import { Link, useNavigate } from "react-router-dom";
 import AutoLogo from "../src/svg/auto.svg";
 
 function MainApp(){
+  
+  const ButtonClick = () =>{
+    
+  }
+
+  const [id, setId] = useState({
+    userId:"",
+  });
+
+  const onChange = e =>{
+    setId(e.target.value);
+    console.log(e.target.value);
+  }
+  
+  const [password, setPassword] = useState({
+    userPassword:"",
+  });
+
+  const onPassword = e =>{
+    setPassword(e.target.value);
+    console.log(e.target.value);
+  }
+
+  const [form, setform] = useState();
+
+  const nav = useNavigate();
+
+  const handleClick = () => {
+    if(id.userId !== "" && password.userPassword !== ""){
+      nav('/',{state:{form}});
+    }
+  }
+
   return(
     <Main>
       <Header>
@@ -23,17 +56,32 @@ function MainApp(){
             <LoginInput
             type="text"
             name="userId"
+            value={id.userId}
+            onChange={onChange}
             placeholder="아이디"
             ></LoginInput>
           </LoginDiv>
             <LoginInput
             type="password"
             name="userId"
+            value={password.userPassword}
+            onChange={onPassword}
             placeholder="비밀번호"
             ></LoginInput>
           <LoginAuto>
-            <AutoButton><AutoImg src={AutoLogo}/><AutoFont>자동로그인</AutoFont></AutoButton>
+            <AutoButton><AutoImg src={AutoLogo} onClick={ButtonClick}/><AutoFont>자동로그인</AutoFont></AutoButton>
           </LoginAuto>
+          <LoginBigDiv>
+            <LoginBigButton onClick={handleClick}>로그인
+            </LoginBigButton>
+          </LoginBigDiv>
+          <Buttons>
+            <Find>
+              <FindLogin>아이디 찾기</FindLogin>
+              <FindJoin>비밀번호 찾기</FindJoin>
+              <JoinAgain>회원가입</JoinAgain>
+            </Find>
+          </Buttons>
         </Section>
       </Body>
     </Main>
@@ -98,7 +146,7 @@ const LoginButton = styled.button`
 
 const Body = styled.div`
   width: 100%;
-  height: 70%;
+  height: 90%;
   display: flex;
   justify-content: center;
 `;
@@ -145,3 +193,64 @@ const AutoImg = styled.img`
 
 const AutoFont = styled.div`
 `;
+
+const LoginBigDiv = styled.div`
+  width: 500px;
+  height: 40px;
+  margin-top: 20px;
+  `;
+
+const LoginBigButton = styled.button`
+  border-radius: 10px;
+  background-color: #36229D;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 30px;
+  `;
+
+  const Buttons = styled.div`
+    width: 500px;
+    height: 40px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `;
+
+  const Find =styled.div`
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+  `;
+
+  const FindLogin = styled.button`
+    font-size: 10px;
+    font-weight: 700;
+    border: none;
+    border-right: 3px solid black;
+    background-color: #fff;
+    width: 90px;
+  `;
+
+  const FindJoin = styled.button`
+    width: 90px;
+    font-size: 10px;
+    font-weight: 700;
+    border: none;
+    border: none;
+    border-right: 3px solid black;
+    background-color: #fff;
+  `;
+
+  const JoinAgain = styled.button`
+    width: 90px;
+    font-size: 10px;
+    font-weight: 700;
+    border: none;
+    background-color: #fff;
+    color: #0084FF;
+  `;
