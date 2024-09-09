@@ -4,6 +4,7 @@ import Logo from "./svg/logo.svg";
 import Look from "../src/svg/look.svg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OX from './svg/ox.svg';
 
 function Add(){
 
@@ -41,7 +42,7 @@ function Add(){
         <Img src={Logo}alt="logo"/>
         <Login>
           <JoinButton><Link to="/" style={{ textDecoration: "none"}}>회원가입</Link></JoinButton>
-          <LoginButton>로그인</LoginButton>
+          <LoginButton><Link to='/Login' style={{textDecoration: "none"}}>로그인</Link></LoginButton>
         </Login>
       </Header>
       <Body>
@@ -50,21 +51,33 @@ function Add(){
           <Fieldset>
             <legend>전화번호</legend>
             <LoginInput
+           onInput= {(e) => {
+            if (e.target.value.length > e.target.maxLength)
+              e.target.value = e.target.value.slice(0, e.target.maxLength);
+          }}
             type="number"
             name="userId"
+            onKey
             onChange={onUserNumber}
             placeholder="공백없이 숫자만 입력하세요"
+            maxLength={10}
             ></LoginInput>
           </Fieldset>
           <Fieldset>
             <legend>출생년도</legend>
             <LoginInput
+            onInput= {(e) => {
+              if (e.target.value.length > e.target.maxLength)
+                e.target.value = e.target.value.slice(0, e.target.maxLength);
+            }}
             type="number"
             name=""
             onChange={onUserYear}
             placeholder="숫자만 입력하세요 ex)2007"
+            maxLength={4}
             ></LoginInput>
           </Fieldset>
+          <ImgOx src={OX} alt="Logo"/>
         </Section>
       </Body>
       <Footer>
@@ -162,6 +175,14 @@ const LoginInput = styled.input`
   border: #fff;
   background-color: #fff;
   outline: none;
+  ::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  ::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+    margin: 0;
+  }
 `;
 
 const Footer = styled.div`
@@ -185,4 +206,8 @@ const Button = styled.button`
   background-color: #36229D;
   color: #fff;
   border: #fff;
+`;
+
+const ImgOx = styled.img`
+  margin-top: 10px;
 `;

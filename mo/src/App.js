@@ -3,7 +3,7 @@ import Trip from './trip';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Join from "./join";
 import Login from "./login";
-import MainMo from "./mainMo"
+import Mohang from "./mohang";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Trip/>}/>
         <Route path='/join' element={<Join/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/mainMo' element={<MainMo/>}/>
+        <Route path='/mohang' element={<Mohang/>}/>
       </Routes>
     </BrowserRouter>  
       </div> 

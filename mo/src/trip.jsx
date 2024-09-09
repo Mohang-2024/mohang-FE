@@ -4,6 +4,7 @@ import Logo from "./svg/logo.svg";
 import Look from "../src/svg/look.svg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import XO from './svg/xo.svg';
 
 function Add(){
 
@@ -50,7 +51,7 @@ function Add(){
         <Img src={Logo}alt="logo"/>
         <Login>
           <JoinButton><Link to="/" style={{ textDecoration: "none"}}>회원가입</Link></JoinButton>
-          <LoginButton>로그인</LoginButton>
+          <LoginButton><Link to='/Login' style={{textDecoration: "none"}}>로그인</Link></LoginButton>
         </Login>
       </Header>
       <Body>
@@ -59,6 +60,12 @@ function Add(){
           <Fieldset>
             <legend>아이디</legend>
             <LoginInput
+            onInput= {(e) => {
+              if (e.target.value.length > e.target.maxLength)
+                e.target.value = e.target.value.slice(0, e.target.minLength);
+            }}
+            maxLength={20}
+            minLength={3}
             type="text"
             name="userId"
             onChange={onUserId}
@@ -68,6 +75,12 @@ function Add(){
           <Fieldset>
             <legend>비밀번호</legend>
             <LoginInput
+            onInput= {(e) => {
+              if (e.target.value.length > e.target.maxLength)
+                e.target.value = e.target.value.slice(0, e.target.minLength);
+            }}
+            maxLength={20}
+            minLength={8}
             type="password"
             name="password"
             onChange={onPassword}
@@ -78,6 +91,12 @@ function Add(){
           <Fieldset>  
             <legend>비밀번호 확인</legend>
             <LoginInput
+            onInput= {(e) => {
+              if (e.target.value.length > e.target.maxLength)
+                e.target.value = e.target.value.slice(0, e.target.minLength);
+            }}
+            maxLength={20}
+            minLength={8}
             type="password"
             name="passreturn"
             onChange={onPassreturn}
@@ -85,6 +104,7 @@ function Add(){
             >
             </LoginInput>
           </Fieldset> 
+          <img src={XO} alt="logo"/>
         </Section>
       </Body>
       <Footer>
@@ -202,6 +222,3 @@ const Button = styled.button`
   border: #fff;
 `;
 
-const ImgLook = styled.img`
-  width: 20px;
-`;

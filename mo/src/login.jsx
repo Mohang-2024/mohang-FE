@@ -36,7 +36,7 @@ function MainApp(){
 
   const handleClick = () => {
     if(id.userId !== "" && password.userPassword !== ""){
-      nav('/',{state:{form}});
+      nav('/Mohang',{state:{form}});
     }
   }
 
@@ -46,7 +46,7 @@ function MainApp(){
         <Img src={Logo}alt="logo"/>
         <Login>
           <JoinButton><Link to="/" style={{ textDecoration: "none"}}>회원가입</Link></JoinButton>
-          <LoginButton>로그인</LoginButton>
+          <LoginButton><Link to='/Login' style={{textDecoration: "none"}}>로그인</Link></LoginButton>
         </Login>
       </Header>
       <Body>
@@ -79,7 +79,7 @@ function MainApp(){
             <Find>
               <FindLogin>아이디 찾기</FindLogin>
               <FindJoin>비밀번호 찾기</FindJoin>
-              <JoinAgain>회원가입</JoinAgain>
+              <JoinAgain><Link to="/" style={{ textDecoration: "none"}}>회원가입</Link></JoinAgain>
             </Find>
           </Buttons>
         </Section>
