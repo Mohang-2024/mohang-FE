@@ -10,10 +10,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Trip/>}/>
+        <Route path="/trip" element={<Trip/>}/>
         <Route path='/join' element={<Join/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/mohang' element={<Mohang/>}/>
+        <Route path='/' element={<Mohang/>}/>
       </Routes>
     </BrowserRouter>  
       </div> 

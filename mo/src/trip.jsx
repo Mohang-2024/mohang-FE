@@ -5,6 +5,8 @@ import Look from "../src/svg/look.svg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import XO from './svg/xo.svg';
+import { FaEyeSlash } from "react-icons/fa"
+
 
 function Add(){
 
@@ -50,61 +52,61 @@ function Add(){
       <Header>
         <Img src={Logo}alt="logo"/>
         <Login>
-          <JoinButton><Link to="/" style={{ textDecoration: "none"}}>회원가입</Link></JoinButton>
+          <JoinButton><Link to="/trip" style={{ textDecoration: "none"}}>회원가입</Link></JoinButton>
           <LoginButton><Link to='/Login' style={{textDecoration: "none"}}>로그인</Link></LoginButton>
         </Login>
       </Header>
       <Body>
         <Section>
           <ImgBody src={Logo} alt="logo"/>
-          <Fieldset>
-            <legend>아이디</legend>
-            <LoginInput
-            onInput= {(e) => {
-              if (e.target.value.length > e.target.maxLength)
-                e.target.value = e.target.value.slice(0, e.target.minLength);
-            }}
-            maxLength={20}
-            minLength={3}
-            type="text"
-            name="userId"
-            onChange={onUserId}
-            placeholder="3자에서 20자까지 입력 가능"
-            ></LoginInput>
-          </Fieldset>
-          <Fieldset>
-            <legend>비밀번호</legend>
-            <LoginInput
-            onInput= {(e) => {
-              if (e.target.value.length > e.target.maxLength)
-                e.target.value = e.target.value.slice(0, e.target.minLength);
-            }}
-            maxLength={20}
-            minLength={8}
-            type="password"
-            name="password"
-            onChange={onPassword}
-            placeholder="8자에서 20자까지 입력 가능"
-            >
-            </LoginInput>
-          </Fieldset>
-          <Fieldset>  
-            <legend>비밀번호 확인</legend>
-            <LoginInput
-            onInput= {(e) => {
-              if (e.target.value.length > e.target.maxLength)
-                e.target.value = e.target.value.slice(0, e.target.minLength);
-            }}
-            maxLength={20}
-            minLength={8}
-            type="password"
-            name="passreturn"
-            onChange={onPassreturn}
-            placeholder="비밀번호를 다시 한번 입력하세요"
-            >
-            </LoginInput>
-          </Fieldset> 
-          <img src={XO} alt="logo"/>
+              <Fieldset>
+                <legend>아이디</legend>
+                <LoginInput
+                onInput= {(e) => {
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.minLength);
+                }}
+                maxLength={20}
+                minLength={3}
+                type="text"
+                name="userId"
+                onChange={onUserId}
+                placeholder="3자에서 20자까지 입력 가능"
+                ></LoginInput>
+              </Fieldset>
+              <Fieldset>
+                <legend>비밀번호</legend>
+                <LoginInput
+                onInput= {(e) => {
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.minLength);
+                }}
+                maxLength={20}
+                minLength={8}
+                type="password"
+                name="password"
+                onChange={onPassword}
+                placeholder="8자에서 20자까지 입력 가능"
+                >
+                </LoginInput>
+              </Fieldset>
+              <Fieldset>  
+                <legend>비밀번호 확인</legend>
+                <LoginInput
+                onInput= {(e) => {
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.minLength);
+                }}
+                maxLength={20}
+                minLength={8}
+                type="password"
+                name="passreturn"
+                onChange={onPassreturn}
+                placeholder="비밀번호를 다시 한번 입력하세요"
+                >
+                </LoginInput>
+              </Fieldset> 
+              <img src={XO} alt="logo"/>
         </Section>
       </Body>
       <Footer>
@@ -164,6 +166,7 @@ const LoginButton = styled.button`
 `;
 
 const Body = styled.div`
+margin-top: 40px;
   width: 100%;
   height: 70%;
   display: flex;
@@ -180,7 +183,7 @@ const Section =styled.div`
 `;
 
 const ImgBody = styled.img`
-  height: 90px;
+  height: 15%;
   margin-bottom: 50px;
 `;
 
@@ -197,6 +200,7 @@ const LoginInput = styled.input`
   border: #fff;
   background-color: #fff;
   outline: none;
+  font-size: 15px;
 `;
 
 const Footer = styled.div`
