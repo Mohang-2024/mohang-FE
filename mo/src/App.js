@@ -1,5 +1,5 @@
 import './App.css';
-import Trip from './trip';
+import Trip from "./trip";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Join from "./join";
 import Login from "./login";
