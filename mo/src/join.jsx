@@ -8,7 +8,7 @@ import OX from './svg/ox.svg';
 
 function Add(){
 
-  const [userNumber, setUserNumber] = useState({
+const [userNumber, setUserNumber] = useState({
     userNumber:'',
   });
 
