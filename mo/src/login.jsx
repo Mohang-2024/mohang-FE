@@ -246,7 +246,7 @@ const LoginBigButton = styled.button`
     background-color: #fff;
   `;
 
-  const JoinAgain = styled.button`
+const JoinAgain = styled.button`
     width: 90px;
     font-size: 10px;
     font-weight: 700;
