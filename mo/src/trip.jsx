@@ -41,7 +41,7 @@ function Add(){
 
   const nav = useNavigate();
 
-  const handleClick = () => {
+const handleClick = () => {
     if(userId.userId !== "" && password.Password !== "" && passreturn.Passreturn !== ""){
       nav('/join',{state:{click}});
     }
