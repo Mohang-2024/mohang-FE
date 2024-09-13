@@ -5,12 +5,23 @@ import Look from "../src/svg/look.svg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AutoLogo from "../src/svg/auto.svg";
+import Clicked from "../src/svg/click.svg";
 
 function MainApp(){
   
+  const [imageSrc, setImageSrc] = useState(Clicked);
+  const [isClicked, setIsClicked] = useState(false);
+
   const ButtonClick = () =>{
-    
-  }
+    if(isClicked){
+      setImageSrc(AutoLogo);
+      setIsClicked(false);
+    }
+    else{
+      setImageSrc(Clicked);
+      setIsClicked(true);
+    }
+  };
 
   const [id, setId] = useState({
     userId:"",
@@ -64,12 +75,12 @@ function MainApp(){
             <LoginInput
             type="password"
             name="userId"
-            value={password.userPassword}
-            onChange={onPassword}
+              value={password.userPassword}
+              onChange={onPassword}
             placeholder="비밀번호"
             ></LoginInput>
           <LoginAuto>
-            <AutoButton><AutoImg src={AutoLogo} onClick={ButtonClick}/><AutoFont>자동로그인</AutoFont></AutoButton>
+            <AutoButton><AutoImg src={imageSrc} onClick={ButtonClick}/><AutoFont>자동로그인</AutoFont></AutoButton>
           </LoginAuto>
           <LoginBigDiv>
             <LoginBigButton onClick={handleClick}>로그인
@@ -95,6 +106,7 @@ const Main = styled.div`
   height: 100vh;
   padding: 0;
   margin: 0;
+  background-color: #fff;
 `;
 
 const Header = styled.div`
