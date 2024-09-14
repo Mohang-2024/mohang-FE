@@ -14,11 +14,11 @@ function MainApp(){
 
   const ButtonClick = () =>{
     if(isClicked){
-      setImageSrc(AutoLogo);
+      setImageSrc(Clicked);
       setIsClicked(false);
     }
     else{
-      setImageSrc(Clicked);
+      setImageSrc(AutoLogo);
       setIsClicked(true);
     }
   };
