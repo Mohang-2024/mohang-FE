@@ -208,10 +208,11 @@ const Find = styled.div`
 
 const FindInput = styled.input`
   width: 75%;
-  height: 20px;
+  height: 40px;
   border-radius: 30px;
   border: 2px solid #3619CC;
   outline: none;
+  margin-left: 10px;
 `;
 
 const Search = styled.div`
