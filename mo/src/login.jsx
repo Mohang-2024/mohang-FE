@@ -47,7 +47,7 @@ function MainApp(){
 
   const handleClick = () => {
     if(id.userId !== "" && password.userPassword !== ""){
-      nav('/',{state:{form}});
+      nav('/LoginMainPage',{state:{form}});
     }
   }
 
@@ -191,7 +191,7 @@ const LoginAuto = styled.div`
   justify-content: start;
   align-items: center;
   margin-top: 20px;
-  margin-left: -60px;
+  margin-left: -120px;
 `;
 
 const AutoButton = styled.button`
