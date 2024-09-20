@@ -75,7 +75,7 @@ function Mohang(){
             <FindInput></FindInput>
             <SearchMain>
               <SearchImg>
-                <img  src={ReadingGlasses} width={25} onClick={onClickSearch}/>
+                <img  src={ReadingGlasses} width={20} onClick={onClickSearch}/>
               </SearchImg>
             </SearchMain>
             <MikeImg src={Mike} width={40} onClick={onClickRecording}/>
@@ -93,7 +93,7 @@ function Mohang(){
         <SlideMain>
           <Slide>
             <Swiper
-              width={1300}
+              width={1140}
               slidesPerView={1}
               spaceBetween={30}
               navigation={true}
@@ -113,6 +113,7 @@ function Mohang(){
                 to='/Login' style={{textDecoration: "none"}}>
                   <img src={ChatbotBenner}
                   onClick={onClick}
+                  width={100}
                 />
                 </Link>
               </SwiperSlide>
@@ -159,7 +160,7 @@ function Mohang(){
         <img src={Now} width={450}/>
         <FooterLogin><LinkWhite to='/Login' style={{textDecoration: "none"}} onClick={onClick}>로그인 하기</LinkWhite></FooterLogin>
         <Last>
-          <img src={Credit} width={1381}/>
+          <img src={Credit} width={1215}/>
         </Last>
       </Footer>
     </Main>
@@ -198,11 +199,11 @@ const Img = styled.img`
 
 const Find = styled.div`
   height: 60px;
-  width:  600px;
+  width:  550px;
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-left: -100px;
+  margin-left: -140px;
 `;
 
 const FindInput = styled.input`
@@ -211,7 +212,7 @@ const FindInput = styled.input`
   border-radius: 30px;
   border: 2px solid #3619CC;
   outline: none;
-  margin-left: 10px;
+  margin-left: 70px;
 `;
 
 const Search = styled.div`
@@ -221,8 +222,9 @@ const Search = styled.div`
 
 const SearchMain = styled.div`
   position: absolute;
-  width: 445px;
+  width: 480px;
   display: flex;
+  align-items: center;
   justify-content: end;
 `;
 
@@ -247,7 +249,8 @@ const LoginButton = styled.button`
   width: 90px;
   border: none;
   background-color: #fff;
-  font-weight: 700;
+  font-weight: 1000;
+  font-size: 11px;
   ::-webkit-inner-spin-button,
   ::-webkit-outer-spin-button{
   -webkit-appearance: none; 
