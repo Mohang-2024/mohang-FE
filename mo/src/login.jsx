@@ -191,7 +191,7 @@ const LoginAuto = styled.div`
   justify-content: start;
   align-items: center;
   margin-top: 20px;
-  margin-left: -120px;
+  margin-left: -50px;
 `;
 
 const AutoButton = styled.button`
