@@ -93,7 +93,7 @@ function Mohang(){
         <SlideMain>
           <Slide>
             <Swiper
-              width={1140}
+              width={1300}
               slidesPerView={1}
               spaceBetween={30}
               navigation={true}
@@ -160,7 +160,7 @@ function Mohang(){
         <img src={Now} width={450}/>
         <FooterLogin><LinkWhite to='/Login' style={{textDecoration: "none"}} onClick={onClick}>로그인 하기</LinkWhite></FooterLogin>
         <Last>
-          <img src={Credit} width={1215}/>
+          <img src={Credit} width={1381}/>
         </Last>
       </Footer>
     </Main>
