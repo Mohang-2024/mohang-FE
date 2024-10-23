@@ -2,12 +2,19 @@ import React from "react";
 import styled from "styled-components"; 
 import Logo from "./svg/logo.svg";
 import Look from "../src/svg/look.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AutoLogo from "../src/svg/auto.svg";
 import Clicked from "../src/svg/click.svg";
+import { getAPi } from "./api/test";
+import axios from "axios";
 
 function MainApp(){
+
+//   useEffect(() => {
+//     getAPi(`http://localhost:8080/users/signin`).then(({data}) => console.log(data));
+// })
+
   
   const [imageSrc, setImageSrc] = useState(Clicked);
   const [isClicked, setIsClicked] = useState(false);
@@ -45,9 +52,25 @@ function MainApp(){
 
   const nav = useNavigate();
 
+  const [Array, setArray] = useState();
   const handleClick = () => {
     if(id.userId !== "" && password.userPassword !== ""){
       nav('/LoginMainPage',{state:{form}});
+      axios({
+        method:'post',
+        url:`http://localhost:8080/users/signin`,
+        data:{
+          accountId : "String",
+          password : "String"
+        },
+      })
+    .then((result) => {console.log('성공')
+      console.log(result)
+      setArray(result.data)
+    })
+    .catch((error) => {console.log("실패")
+      console.log(error)
+    })
     }
   }
 
@@ -75,8 +98,8 @@ function MainApp(){
             <LoginInput
             type="password"
             name="userId"
-              value={password.userPassword}
-              onChange={onPassword}
+            value={password.userPassword}
+            onChange={onPassword}
             placeholder="비밀번호"
             ></LoginInput>
           <LoginAuto>
