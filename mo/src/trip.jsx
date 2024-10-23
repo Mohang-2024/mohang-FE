@@ -6,9 +6,32 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import XO from './svg/xo.svg';
 import { FaEyeSlash } from "react-icons/fa"
-
+import axios from "axios"
+import { getAPi } from "./api/test";
 
 function Add(){
+
+
+  const [Array, setArray] = useState([]);
+  // axios({
+  //   method:'post',
+  //   url:`http://localhost:8080/users/signup`,
+  //   data:{
+  //     accountId: "string", // 아이디는 8자 ~ 20
+  //     password : "string", // 영문자, 특수문자, 숫자
+  //     phoneNumber : "string",
+  //     age : "string"
+  //   },
+  // })
+  // .then((result) => {console.log('성공')
+  //   console.log(result)
+  //   setArray(prevArray => [...prevArray, result.data]);
+  // })
+  // .catch((error) => {console.log("실패")
+  //   console.log(error)
+  // })
+
+
 
   const [userId, setUserId] = useState({
     userId:'',
@@ -44,6 +67,23 @@ function Add(){
 const handleClick = () => {
     if(userId.userId !== "" && password.Password !== "" && passreturn.Passreturn !== ""){
       nav('/join',{state:{click}});
+      axios({
+    method:'post',
+    url:`http://localhost:8080/users/signup`,
+    data:{
+      accountId: "string", // 아이디는 8자 ~ 20
+      password : "string", // 영문자, 특수문자, 숫자
+      phoneNumber : "string",
+      age : "string"
+    },
+  })
+  .then((result) => {console.log('성공')
+    console.log(result)
+    setArray(prevArray => [...prevArray, result.data]);
+  })
+  .catch((error) => {console.log("실패")
+    console.log(error)
+  })
     }
   }
 
