@@ -1,17 +1,16 @@
 import React from "react";
-import styled from "styled-components"; 
+import styled from "styled-components";
 import Logo from "./svg/logo.svg";
 import Look from "../src/svg/look.svg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import XO from './svg/xo.svg';
-import { FaEyeSlash } from "react-icons/fa"
-import axios from "axios"
+import XO from "./svg/xo.svg";
+import { FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 import { getAPi } from "./api/test";
+import { type } from "@testing-library/user-event/dist/type";
 
-function Add(){
-
-
+function Add() {
   const [Array, setArray] = useState([]);
   // axios({
   //   method:'post',
@@ -31,122 +30,132 @@ function Add(){
   //   console.log(error)
   // })
 
-
-
   const [userId, setUserId] = useState({
-    userId:'',
+    userId: "",
   });
 
   const [password, setpassword] = useState({
-    Password:'',
+    Password: "",
   });
 
-  const [passreturn,setPassreturn] = useState({
-    Passreturn:'',
+  const [passreturn, setPassreturn] = useState({
+    Passreturn: "",
   });
 
-  const onUserId = e =>{
+  const onUserId = (e) => {
     setUserId(e.target.value);
     console.log(e.target.value);
-  }
+  };
 
-  const onPassword = e =>{
+  const onPassword = (e) => {
     setpassword(e.target.value);
     console.log(e.target.value);
-  }
+  };
 
-  const onPassreturn = e =>{
+  const onPassreturn = (e) => {
     setPassreturn(e.target.value);
     console.log(e.target.value);
-  }
+  };
 
   const [click, setClick] = useState("");
 
   const nav = useNavigate();
 
-const handleClick = () => {
-    if(userId.userId !== "" && password.Password !== "" && passreturn.Passreturn !== ""){
-      nav('/join',{state:{click}});
+  const handleClick = () => {
+    if (
+      userId.userId !== "" &&
+      password.Password !== "" &&
+      passreturn.Passreturn !== ""
+    ) {
+      nav("/join", { state: { click } });
       axios({
-    method:'post',
-    url:`http://localhost:8080/users/signup`,
-    data:{
-      accountId: "string", // 아이디는 8자 ~ 20
-      password : "string", // 영문자, 특수문자, 숫자
-      phoneNumber : "string",
-      age : "string"
-    },
-  })
-  .then((result) => {console.log('성공')
-    console.log(result)
-    setArray(prevArray => [...prevArray, result.data]);
-  })
-  .catch((error) => {console.log("실패")
-    console.log(error)
-  })
+        method: "post",
+        url: `http://localhost:8080/users/signup`,
+        data: {
+          accountId: "string", // 아이디는 8자 ~ 20
+          password: "string", // 영문자, 특수문자, 숫자
+          phoneNumber: "string",
+          age: "string",
+        },
+      })
+        .then((result) => {
+          console.log("성공");
+          console.log(result);
+          setArray((prevArray) => [...prevArray, result.data]);
+        })
+        .catch((error) => {
+          console.log("실패");
+          console.log(error);
+        });
     }
-  }
+  };
 
-  return(
+  return (
     <Main>
       <Header>
-        <Img src={Logo}alt="logo"/>
+        <Img src={Logo} alt="logo" />
         <Login>
-          <JoinButton><Link to="/trip" style={{ textDecoration: "none"}}>회원가입</Link></JoinButton>
-          <LoginButton><Link to='/Login' style={{textDecoration: "none"}}>로그인</Link></LoginButton>
+          <JoinButton>
+            <Link to="/trip" style={{ textDecoration: "none" }}>
+              회원가입
+            </Link>
+          </JoinButton>
+          <LoginButton>
+            <Link to="/Login" style={{ textDecoration: "none" }}>
+              로그인
+            </Link>
+          </LoginButton>
         </Login>
       </Header>
       <Body>
         <Section>
-          <ImgBody src={Logo} alt="logo"/>
-              <Fieldset>
-                <legend>아이디</legend>
-                <LoginInput
-                onInput= {(e) => {
-                  if (e.target.value.length > e.target.maxLength)
-                    e.target.value = e.target.value.slice(0, e.target.minLength);
-                }}
-                maxLength={20}
-                minLength={3}
-                type="text"
-                name="userId"
-                onChange={onUserId}
-                placeholder="3자에서 20자까지 입력 가능"
-                ></LoginInput>
-              </Fieldset>
-              <Fieldset>
-                <legend>비밀번호</legend>
-                <LoginInput
-                onInput= {(e) => {
-                  if (e.target.value.length > e.target.maxLength)
-                    e.target.value = e.target.value.slice(0, e.target.minLength);
-                }}
-                maxLength={20}
-                minLength={8}
-                type="password"
-                name="password"
-                onChange={onPassword}
-                placeholder="8자에서 20자까지 입력 가능"
-                >
-                </LoginInput>
-              </Fieldset>
-              <Fieldset>  
-                <legend>비밀번호 확인</legend>
-                <LoginInput
-                onInput= {(e) => {
-                  if (e.target.value.length > e.target.maxLength)
-                    e.target.value = e.target.value.slice(0, e.target.minLength);
-                }}
-                maxLength={20}
-                minLength={8}
-                type="password"
-                name="passreturn"
-                onChange={onPassreturn}
-                placeholder="비밀번호를 다시 한번 입력하세요"
-                >
-                </LoginInput>
-              </Fieldset> 
-              <img src={XO} alt="logo"/>
+          <ImgBody src={Logo} alt="logo" />
+          <Fieldset>
+            <legend>아이디</legend>
+            <LoginInput
+              onInput={(e) => {
+                if (e.target.value.length > e.target.maxLength)
+                  e.target.value = e.target.value.slice(0, e.target.minLength);
+              }}
+              maxLength={20}
+              minLength={3}
+              type="text"
+              name="userId"
+              onChange={onUserId}
+              placeholder="3자에서 20자까지 입력 가능"
+            ></LoginInput>
+          </Fieldset>
+          <Fieldset>
+            <legend>비밀번호</legend>
+            <LoginInput
+              onInput={(e) => {
+                if (e.target.value.length > e.target.maxLength)
+                  e.target.value = e.target.value.slice(0, e.target.minLength);
+              }}
+              maxLength={20}
+              minLength={8}
+              type="password"
+              name="password"
+              onChange={onPassword}
+              placeholder="8자에서 20자까지 입력 가능"
+            ></LoginInput>
+          </Fieldset>
+          <Fieldset>
+            <legend>비밀번호 확인</legend>
+            <LoginInput
+              onInput={(e) => {
+                if (e.target.value.length > e.target.maxLength)
+                  e.target.value = e.target.value.slice(0, e.target.minLength);
+              }}
+              maxLength={20}
+              minLength={8}
+              type="password"
+              name="passreturn"
+              onChange={onPassreturn}
+              placeholder="비밀번호를 다시 한번 입력하세요"
+            ></LoginInput>
+          </Fieldset>
+          <img src={XO} alt="logo" />
         </Section>
       </Body>
       <Footer>
@@ -195,11 +204,11 @@ const JoinButton = styled.button`
   width: 70px;
   border: none;
   background-color: #fff;
-  color: #0084FF;
+  color: #0084ff;
   font-weight: 700;
 `;
 
-const LoginButton = styled.button`  
+const LoginButton = styled.button`
   width: 70px;
   border: none;
   background-color: #fff;
@@ -207,14 +216,14 @@ const LoginButton = styled.button`
 `;
 
 const Body = styled.div`
-margin-top: 40px;
+  margin-top: 40px;
   width: 100%;
   height: 70%;
   display: flex;
   justify-content: center;
 `;
 
-const Section =styled.div`
+const Section = styled.div`
   height: 100%;
   width: 50%;
   display: flex;
@@ -262,8 +271,11 @@ const Button = styled.button`
   height: 40px;
   font-weight: 700;
   border-radius: 10px;
-  background-color: #36229D;
+  background-color: #36229d;
   color: #fff;
   border: #fff;
 `;
 
+div
+<input style={{display:"flex"} type={type}}></input><img src="" alt="" onClick={()=>{"대충 input태그 type"}}/>
+div
