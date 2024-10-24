@@ -23,12 +23,6 @@ import Credit from './svg/credit.svg';
 
 function Mohang(){
 
-  //api 연동
-  // useEffect(() => {
-  //   getAPi().then(({data}) => console.log(data));
-
-
-  // }, []);
   const onClick = () =>{
     alert("로그인이 필요합니다");
   } 
