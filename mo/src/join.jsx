@@ -2,11 +2,21 @@ import React from "react";
 import styled from "styled-components"; 
 import Logo from "./svg/logo.svg";
 import Look from "../src/svg/look.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OX from './svg/ox.svg';
+import { SiRetroarch } from "react-icons/si";
+import axios from "axios"
+import { getAPi } from "./api/test";
 
 function Add(){
+
+  const [Array, setArray] = useState();
+
+    //api 연동
+  // useEffect(() => {
+  //     getAPi(`http://localhost:8080/users/signup`).then(({data}) => console.log(data));
+  // })
 
 const [userNumber, setUserNumber] = useState({
     userNumber:'',
@@ -33,6 +43,23 @@ const [userNumber, setUserNumber] = useState({
   const handleClick = () => {
     if(userNumber.userNumber !== "" && userYear.userYear !== ""){
       nav('/login',{state:{click}});
+      axios({
+        method:'post',
+        url:`http://localhost:8080/users/signup`,
+        data:{
+          accountId: "string", // 아이디는 8자 ~ 20
+          password : "string", // 영문자, 특수문자, 숫자  
+          phoneNumber : "string",
+          age : "string"
+        },
+      })
+      .then((result) => {console.log('성공')
+        console.log(result)
+        setArray(result.data)
+      })
+      .catch((error) => {console.log("실패")
+        console.log(error)
+      })
     }
   }
 
