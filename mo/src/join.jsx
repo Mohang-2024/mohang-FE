@@ -46,7 +46,7 @@ const [userNumber, setUserNumber] = useState({
       axios({
         method:'post',
         url:`http://localhost:8080/users/signup`,
-        data:{
+        data:{  
           accountId: "string", // 아이디는 8자 ~ 20
           password : "string", // 영문자, 특수문자, 숫자  
           phoneNumber : "string",
